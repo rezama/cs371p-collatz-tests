@@ -1,3 +1,15 @@
+==20339== Memcheck, a memory error detector
+==20339== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==20339== Using Valgrind-3.9.0.SVN and LibVEX; rerun with -h for copyright info
+==20339== Command: ./RunCollatz.c++.app
+==20339== 
+==20339== WARNING: Support on MacOS 10.8 is experimental and mostly broken.
+==20339== WARNING: Expect incorrect results, assertions and crashes.
+==20339== WARNING: In particular, Memcheck on 32-bit programs will fail to
+==20339== WARNING: detect any errors associated with heap-allocated data.
+==20339== 
+--20339-- ./RunCollatz.c++.app:
+--20339-- dSYM directory is missing; consider using --dsymutil=yes
 64870 787043 509
 908402 242047 525
 237105 819286 509
@@ -998,3 +1010,18 @@
 97753 292296 443
 64894 890824 525
 716119 358865 509
+==20339== 
+==20339== HEAP SUMMARY:
+==20339==     in use at exit: 73,842 bytes in 357 blocks
+==20339==   total heap usage: 537 allocs, 180 frees, 78,788 bytes allocated
+==20339== 
+==20339== LEAK SUMMARY:
+==20339==    definitely lost: 0 bytes in 0 blocks
+==20339==    indirectly lost: 0 bytes in 0 blocks
+==20339==      possibly lost: 5,869 bytes in 57 blocks
+==20339==    still reachable: 67,973 bytes in 300 blocks
+==20339==         suppressed: 0 bytes in 0 blocks
+==20339== Rerun with --leak-check=full to see details of leaked memory
+==20339== 
+==20339== For counts of detected and suppressed errors, rerun with: -v
+==20339== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
