@@ -26,13 +26,13 @@ To test the program:
 // includes
 // --------
 
-#include <iostream> // cout, endl
-#include <sstream>  // istringtstream, ostringstream
-#include <string>   // ==
+#include <iostream>  // cout, endl
+#include <sstream>   // istringtstream, ostringstream
+#include <string>    // ==
 
-#include "cppunit/extensions/HelperMacros.h" // CPPUNIT_TEST, CPPUNIT_TEST_SUITE, CPPUNIT_TEST_SUITE_END
-#include "cppunit/TestFixture.h"             // TestFixture
-#include "cppunit/TextTestRunner.h"          // TextTestRunner
+#include "cppunit/extensions/HelperMacros.h"  // CPPUNIT_TEST, CPPUNIT_TEST_SUITE, CPPUNIT_TEST_SUITE_END
+#include "cppunit/TestFixture.h"              // TestFixture
+#include "cppunit/TextTestRunner.h"           // TextTestRunner
 
 #include "./Collatz.h"
 
@@ -50,8 +50,8 @@ struct TestCollatz : CppUnit::TestFixture {
      */
     void test_read_1() {
         std::istringstream r("1 10\n");
-        int i;
-        int j;
+        unsigned int i;
+        unsigned int j;
         const bool b = collatz_read(r, i, j);
         CPPUNIT_ASSERT(b == true);
         CPPUNIT_ASSERT(i == 1);
@@ -63,8 +63,8 @@ struct TestCollatz : CppUnit::TestFixture {
      */
     void test_read_2() {
         std::istringstream r("1\n");
-        int i;
-        int j;
+        unsigned int i;
+        unsigned int j;
         const bool b = collatz_read(r, i, j);
         CPPUNIT_ASSERT(b == false);
         CPPUNIT_ASSERT(i == 1);
@@ -76,8 +76,8 @@ struct TestCollatz : CppUnit::TestFixture {
      */
     void test_read_3() {
         std::istringstream r("1 10\n3\n");
-        int i;
-        int j;
+        unsigned int i;
+        unsigned int j;
         const bool b1 = collatz_read(r, i, j);
         CPPUNIT_ASSERT(b1 == true);
         CPPUNIT_ASSERT(i == 1);
@@ -93,8 +93,8 @@ struct TestCollatz : CppUnit::TestFixture {
      */
     void test_read_4() {
         std::istringstream r("1\n10\n");
-        int i;
-        int j;
+        unsigned int i;
+        unsigned int j;
         const bool b = collatz_read(r, i, j);
         CPPUNIT_ASSERT(b == true);
         CPPUNIT_ASSERT(i == 1);
@@ -106,8 +106,8 @@ struct TestCollatz : CppUnit::TestFixture {
      */
     void test_read_5() {
         std::istringstream r("asd jkl\n");
-        int i;
-        int j;
+        unsigned int i;
+        unsigned int j;
         const bool b = collatz_read(r, i, j);
         CPPUNIT_ASSERT(b == false);
     }
@@ -117,8 +117,8 @@ struct TestCollatz : CppUnit::TestFixture {
      */
     void test_read_6() {
         std::istringstream r("1000000000 1500000000\n");
-        int i;
-        int j;
+        unsigned int i;
+        unsigned int j;
         const bool b = collatz_read(r, i, j);
         CPPUNIT_ASSERT(b == true);
         CPPUNIT_ASSERT(i == 1000000000);
@@ -130,8 +130,8 @@ struct TestCollatz : CppUnit::TestFixture {
      */
     void test_read_7() {
         std::istringstream r("1 10");
-        int i;
-        int j;
+        unsigned int i;
+        unsigned int j;
         const bool b = collatz_read(r, i, j);
         CPPUNIT_ASSERT(b == true);
         CPPUNIT_ASSERT(i == 1);
@@ -143,8 +143,8 @@ struct TestCollatz : CppUnit::TestFixture {
      */
     void test_read_8() {
         std::istringstream r("\n");
-        int i;
-        int j;
+        unsigned int i;
+        unsigned int j;
         const bool b = collatz_read(r, i, j);
         CPPUNIT_ASSERT(b == false);
     }
@@ -154,8 +154,8 @@ struct TestCollatz : CppUnit::TestFixture {
      */
     void test_read_9() {
         std::istringstream r("");
-        int i;
-        int j;
+        unsigned int i;
+        unsigned int j;
         const bool b = collatz_read(r, i, j);
         CPPUNIT_ASSERT(b == false);
     }
@@ -170,7 +170,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * to use the result of collatz_next to count how many next steps there are.
      */
     void test_next_1() {
-        const int v = collatz_next(1);
+        const unsigned int v = collatz_next(1);
         CPPUNIT_ASSERT(v == 0);
     }
 
@@ -179,7 +179,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Also test that the value 1 is computed as the final step.
      */
     void test_next_2() {
-        const int v = collatz_next(2);
+        const unsigned int v = collatz_next(2);
         CPPUNIT_ASSERT(v == 1);
     }
 
@@ -187,7 +187,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test that the next step for powers of two 2^n = 2^(n-1).
      */
     void test_next_3() {
-        const int v = collatz_next(4);
+        const unsigned int v = collatz_next(4);
         CPPUNIT_ASSERT(v == 2);
     }
 
@@ -195,7 +195,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test that the next step for powers of two 2^n = 2^(n-1).
      */
     void test_next_4() {
-        const int v = collatz_next(8);
+        const unsigned int v = collatz_next(8);
         CPPUNIT_ASSERT(v == 4);
     }
 
@@ -203,7 +203,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test that the next step for powers of two 2^n = 2^(n-1).
      */
     void test_next_5() {
-        const int v = collatz_next(16);
+        const unsigned int v = collatz_next(16);
         CPPUNIT_ASSERT(v == 8);
     }
 
@@ -211,7 +211,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test that the next step for powers of two 2^n = 2^(n-1).
      */
     void test_next_6() {
-        const int v = collatz_next(1024);
+        const unsigned int v = collatz_next(1024);
         CPPUNIT_ASSERT(v == 512);
     }
 
@@ -219,7 +219,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test that the next step for odd numbers is 3n+1.
      */
     void test_next_7() {
-        const int v = collatz_next(5);
+        const unsigned int v = collatz_next(5);
         CPPUNIT_ASSERT(v == 16);
     }
 
@@ -227,7 +227,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test that the next step for odd numbers is 3n+1.
      */
     void test_next_8() {
-        const int v = collatz_next(341);
+        const unsigned int v = collatz_next(341);
         CPPUNIT_ASSERT(v == 1024);
     }
 
@@ -235,8 +235,8 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test that the next step for odd numbers is 3n+1.
      */
     void test_next_9() {
-        const int v = collatz_next(123);
-        const int expected = 123 * 3 + 1;  // = 370
+        const unsigned int v = collatz_next(123);
+        const unsigned int expected = 123 * 3 + 1;  // = 370
         CPPUNIT_ASSERT(v == expected);
         CPPUNIT_ASSERT(v == 370);
     }
@@ -245,8 +245,8 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test that the next step for even numbers n/2.
      */
     void test_next_10() {
-        const int v = collatz_next(370);
-        const int expected = 370/2;  // = 185
+        const unsigned int v = collatz_next(370);
+        const unsigned int expected = 370/2;  // = 185
         CPPUNIT_ASSERT(v == expected);
         CPPUNIT_ASSERT(v == 185);
     }
@@ -255,8 +255,8 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test that the next step for even numbers n/2.
      */
     void test_next_11() {
-        const int v = collatz_next(50);
-        const int expected = 50/2;  // = 25
+        const unsigned int v = collatz_next(50);
+        const unsigned int expected = 50/2;  // = 25
         CPPUNIT_ASSERT(v == expected);
         CPPUNIT_ASSERT(v == 25);
     }
@@ -269,7 +269,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length of powers of 2.
      */
     void test_cycle_1() {
-        const int v = collatz_cycle(4);
+        const unsigned int v = collatz_cycle(4);
         CPPUNIT_ASSERT(v == 3);
     }
 
@@ -277,7 +277,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length of powers of 2.
      */
     void test_cycle_2() {
-        const int v = collatz_cycle(8);
+        const unsigned int v = collatz_cycle(8);
         CPPUNIT_ASSERT(v == 4);
     }
 
@@ -285,7 +285,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length of powers of 2.
      */
     void test_cycle_3() {
-        const int v = collatz_cycle(16);
+        const unsigned int v = collatz_cycle(16);
         CPPUNIT_ASSERT(v == 5);
     }
 
@@ -293,7 +293,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length of powers of 2.
      */
     void test_cycle_4() {
-        const int v = collatz_cycle(1024);
+        const unsigned int v = collatz_cycle(1024);
         CPPUNIT_ASSERT(v == 11);
     }
 
@@ -301,7 +301,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for inputs away from powers of 2 by one step.
      */
     void test_cycle_5() {
-        const int v = collatz_cycle(5);
+        const unsigned int v = collatz_cycle(5);
         CPPUNIT_ASSERT(v == 6);
     }
 
@@ -309,7 +309,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for inputs away from powers of 2 by one step.
      */
     void test_cycle_6() {
-        const int v = collatz_cycle(341);
+        const unsigned int v = collatz_cycle(341);
         CPPUNIT_ASSERT(v == 12);
     }
 
@@ -317,7 +317,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_7() {
-        const int v = collatz_cycle(9);
+        const unsigned int v = collatz_cycle(9);
         CPPUNIT_ASSERT(v == 20);
     }
 
@@ -325,7 +325,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_8() {
-        const int v = collatz_cycle(28);
+        const unsigned int v = collatz_cycle(28);
         CPPUNIT_ASSERT(v == 19);
     }
 
@@ -333,7 +333,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_9() {
-        const int v = collatz_cycle(14);
+        const unsigned int v = collatz_cycle(14);
         CPPUNIT_ASSERT(v == 18);
     }
 
@@ -341,7 +341,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_10() {
-        const int v = collatz_cycle(7);
+        const unsigned int v = collatz_cycle(7);
         CPPUNIT_ASSERT(v == 17);
     }
 
@@ -349,7 +349,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_11() {
-        const int v = collatz_cycle(22);
+        const unsigned int v = collatz_cycle(22);
         CPPUNIT_ASSERT(v == 16);
     }
 
@@ -357,7 +357,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_12() {
-        const int v = collatz_cycle(11);
+        const unsigned int v = collatz_cycle(11);
         CPPUNIT_ASSERT(v == 15);
     }
 
@@ -365,7 +365,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_13() {
-        const int v = collatz_cycle(34);
+        const unsigned int v = collatz_cycle(34);
         CPPUNIT_ASSERT(v == 14);
     }
 
@@ -373,7 +373,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_14() {
-        const int v = collatz_cycle(17);
+        const unsigned int v = collatz_cycle(17);
         CPPUNIT_ASSERT(v == 13);
     }
 
@@ -381,7 +381,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_15() {
-        const int v = collatz_cycle(52);
+        const unsigned int v = collatz_cycle(52);
         CPPUNIT_ASSERT(v == 12);
     }
 
@@ -389,7 +389,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_16() {
-        const int v = collatz_cycle(26);
+        const unsigned int v = collatz_cycle(26);
         CPPUNIT_ASSERT(v == 11);
     }
 
@@ -397,7 +397,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_17() {
-        const int v = collatz_cycle(13);
+        const unsigned int v = collatz_cycle(13);
         CPPUNIT_ASSERT(v == 10);
     }
 
@@ -405,7 +405,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_18() {
-        const int v = collatz_cycle(40);
+        const unsigned int v = collatz_cycle(40);
         CPPUNIT_ASSERT(v == 9);
     }
 
@@ -413,7 +413,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_19() {
-        const int v = collatz_cycle(20);
+        const unsigned int v = collatz_cycle(20);
         CPPUNIT_ASSERT(v == 8);
     }
 
@@ -421,7 +421,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check cycle length for a sample input from Sphere.
      */
     void test_cycle_20() {
-        const int v = collatz_cycle(10);
+        const unsigned int v = collatz_cycle(10);
         CPPUNIT_ASSERT(v == 7);
     }
 
@@ -430,8 +430,16 @@ struct TestCollatz : CppUnit::TestFixture {
      * Here is a result that is seen in later tests so this is a good stopping place.
      */
     void test_cycle_21() {
-        const int v = collatz_cycle(5);
+        const unsigned int v = collatz_cycle(5);
         CPPUNIT_ASSERT(v == 6);
+    }
+
+    /**
+     * Check that this cycle length doesn't cause overflow and terminates.
+     */
+    void test_cycle_22() {
+        const unsigned int v = collatz_cycle(999167);
+        CPPUNIT_ASSERT(v == 321);
     }
 
     // ----
@@ -442,7 +450,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check sample input from sphere, first 10 valid inputs to the sequence.
      */
     void test_eval_1() {
-        const int v = collatz_eval(1, 10);
+        const unsigned int v = collatz_eval(1, 10);
         CPPUNIT_ASSERT(v == 20);
     }
 
@@ -450,7 +458,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check sample input from sphere, low 3-digit range.
      */
     void test_eval_2() {
-        const int v = collatz_eval(100, 200);
+        const unsigned int v = collatz_eval(100, 200);
         CPPUNIT_ASSERT(v == 125);
     }
 
@@ -458,7 +466,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check sample input from sphere, small range of 3-digit numbers.
      */
     void test_eval_3() {
-        const int v = collatz_eval(201, 210);
+        const unsigned int v = collatz_eval(201, 210);
         CPPUNIT_ASSERT(v == 89);
     }
 
@@ -466,7 +474,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check sample input from sphere, high 3-digit range.
      */
     void test_eval_4() {
-        const int v = collatz_eval(900, 1000);
+        const unsigned int v = collatz_eval(900, 1000);
         CPPUNIT_ASSERT(v == 174);
     }
 
@@ -474,7 +482,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check sample input from sphere, reversed inputs, same output.
      */
     void test_eval_5() {
-        const int v = collatz_eval(10, 1);
+        const unsigned int v = collatz_eval(10, 1);
         CPPUNIT_ASSERT(v == 20);
     }
 
@@ -482,7 +490,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check sample input from sphere, reversed inputs, same output.
      */
     void test_eval_6() {
-        const int v = collatz_eval(200, 100);
+        const unsigned int v = collatz_eval(200, 100);
         CPPUNIT_ASSERT(v == 125);
     }
 
@@ -490,7 +498,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check sample input from sphere, reversed inputs, same output.
      */
     void test_eval_7() {
-        const int v = collatz_eval(210, 201);
+        const unsigned int v = collatz_eval(210, 201);
         CPPUNIT_ASSERT(v == 89);
     }
 
@@ -498,7 +506,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Check sample input from sphere, reversed inputs, same output.
      */
     void test_eval_8() {
-        const int v = collatz_eval(1000, 900);
+        const unsigned int v = collatz_eval(1000, 900);
         CPPUNIT_ASSERT(v == 174);
     }
 
@@ -508,7 +516,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Use powers of two because they are easy to calculate.
      */
     void test_eval_9() {
-        const int v = collatz_eval(4, 4);
+        const unsigned int v = collatz_eval(4, 4);
         CPPUNIT_ASSERT(v == 3);
     }
 
@@ -517,7 +525,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * a power of two. 8 has 4 bits.
      */
     void test_eval_10() {
-        const int v = collatz_eval(8, 8);
+        const unsigned int v = collatz_eval(8, 8);
         CPPUNIT_ASSERT(v == 4);
     }
 
@@ -526,7 +534,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * a power of two. 16 has five bits.
      */
     void test_eval_11() {
-        const int v = collatz_eval(16, 16);
+        const unsigned int v = collatz_eval(16, 16);
         CPPUNIT_ASSERT(v == 5);
     }
 
@@ -535,7 +543,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * a power of two. 1024 has 11 bits.
      */
     void test_eval_12() {
-        const int v = collatz_eval(1024, 1024);
+        const unsigned int v = collatz_eval(1024, 1024);
         CPPUNIT_ASSERT(v == 11);
     }
 
@@ -545,7 +553,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Add one to the cycle length for this input.
      */
     void test_eval_13() {
-        const int v = collatz_eval(5, 5);
+        const unsigned int v = collatz_eval(5, 5);
         CPPUNIT_ASSERT(v == 6);
     }
 
@@ -555,7 +563,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Add one to the cycle length for this input.
      */
     void test_eval_14() {
-        const int v = collatz_eval(341, 341);
+        const unsigned int v = collatz_eval(341, 341);
         CPPUNIT_ASSERT(v == 12);
     }
 
@@ -563,7 +571,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Confirm correct value for 9 for next tests.
      */
     void test_eval_15() {
-        const int v = collatz_eval(9, 9);
+        const unsigned int v = collatz_eval(9, 9);
         CPPUNIT_ASSERT(v == 20);
     }
 
@@ -572,7 +580,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * the correct value is returned.
      */
     void test_eval_16() {
-        const int v = collatz_eval(1, 9);
+        const unsigned int v = collatz_eval(1, 9);
         CPPUNIT_ASSERT(v == 20);
     }
 
@@ -581,7 +589,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * the correct value is returned.
      */
     void test_eval_17() {
-        const int v = collatz_eval(9, 17);
+        const unsigned int v = collatz_eval(9, 17);
         CPPUNIT_ASSERT(v == 20);
     }
 
@@ -590,7 +598,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * the correct value is returned, even when range is reversed.
      */
     void test_eval_18() {
-        const int v = collatz_eval(9, 1);
+        const unsigned int v = collatz_eval(9, 1);
         CPPUNIT_ASSERT(v == 20);
     }
 
@@ -599,7 +607,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * the correct value is returned, even when range is reversed.
      */
     void test_eval_19() {
-        const int v = collatz_eval(17, 9);
+        const unsigned int v = collatz_eval(17, 9);
         CPPUNIT_ASSERT(v == 20);
     }
 
@@ -607,7 +615,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test for large inputs in range of the problem statement.
      */
     void test_eval_20() {
-        const int v = collatz_eval(999999, 999999);
+        const unsigned int v = collatz_eval(999999, 999999);
         CPPUNIT_ASSERT(v == 259);
     }
 
@@ -615,7 +623,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test for inputs outside the range of the problem statement.
      */
     void test_eval_21() {
-        const int v = collatz_eval(1000000, 1000000);
+        const unsigned int v = collatz_eval(1000000, 1000000);
         CPPUNIT_ASSERT(v == 153);
     }
 
@@ -623,7 +631,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Test for very large inputs, outside the range of the problem statement.
      */
     void test_eval_22() {
-        const int v = collatz_eval(1000000000, 1000000000);
+        const unsigned int v = collatz_eval(1000000000, 1000000000);
         CPPUNIT_ASSERT(v == 101);
     }
 
@@ -632,7 +640,7 @@ struct TestCollatz : CppUnit::TestFixture {
      * Solution is to use 64-bit long longs on the inside of the computation.
      */
     void test_eval_23() {
-        const int v = collatz_eval(999999999, 999999999);
+        const unsigned int v = collatz_eval(999999999, 999999999);
         CPPUNIT_ASSERT(v == 362);
     }
 
@@ -641,8 +649,16 @@ struct TestCollatz : CppUnit::TestFixture {
      * Solution is to use 64-bit long longs on the inside of the computation.
      */
     void test_eval_24() {
-        const int v = collatz_eval(1499999999, 1499999999);
+        const unsigned int v = collatz_eval(1499999999, 1499999999);
         CPPUNIT_ASSERT(v == 360);
+    }
+
+    /**
+     * Test the range where an integer overflow was detected.
+     */
+    void test_eval_25() {
+        const unsigned int v = collatz_eval(999170, 999164);
+        CPPUNIT_ASSERT(v == 321);
     }
 
     // -----
@@ -806,6 +822,7 @@ struct TestCollatz : CppUnit::TestFixture {
     CPPUNIT_TEST(test_cycle_19);
     CPPUNIT_TEST(test_cycle_20);
     CPPUNIT_TEST(test_cycle_21);
+    CPPUNIT_TEST(test_cycle_22);
 
     CPPUNIT_TEST(test_next_1);
     CPPUNIT_TEST(test_next_2);
@@ -845,6 +862,7 @@ struct TestCollatz : CppUnit::TestFixture {
     CPPUNIT_TEST(test_eval_23);
     CPPUNIT_TEST(test_eval_24);
     */
+    CPPUNIT_TEST(test_eval_25);
 
     CPPUNIT_TEST(test_print_1);
     CPPUNIT_TEST(test_print_2);
