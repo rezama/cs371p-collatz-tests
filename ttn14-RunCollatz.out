@@ -1,8 +1,8 @@
-==25427== Memcheck, a memory error detector
-==25427== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
-==25427== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
-==25427== Command: RunCollatz.c++.app
-==25427== 
+==5890== Memcheck, a memory error detector
+==5890== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==5890== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==5890== Command: RunCollatz.c++.app
+==5890== 
 1164 8217 262
 6134 2983 238
 9415 3484 262
@@ -1003,18 +1003,18 @@
 9911 7889 260
 6937 4899 262
 67 854 171
-==25427== 
-==25427== HEAP SUMMARY:
-==25427==     in use at exit: 122,880 bytes in 6 blocks
-==25427==   total heap usage: 6 allocs, 0 frees, 122,880 bytes allocated
-==25427== 
-==25427== LEAK SUMMARY:
-==25427==    definitely lost: 0 bytes in 0 blocks
-==25427==    indirectly lost: 0 bytes in 0 blocks
-==25427==      possibly lost: 0 bytes in 0 blocks
-==25427==    still reachable: 122,880 bytes in 6 blocks
-==25427==         suppressed: 0 bytes in 0 blocks
-==25427== Rerun with --leak-check=full to see details of leaked memory
-==25427== 
-==25427== For counts of detected and suppressed errors, rerun with: -v
-==25427== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 17 from 6)
+==5890== 
+==5890== HEAP SUMMARY:
+==5890==     in use at exit: 122,880 bytes in 6 blocks
+==5890==   total heap usage: 3,116 allocs, 3,110 frees, 5,712,728 bytes allocated
+==5890== 
+==5890== LEAK SUMMARY:
+==5890==    definitely lost: 0 bytes in 0 blocks
+==5890==    indirectly lost: 0 bytes in 0 blocks
+==5890==      possibly lost: 0 bytes in 0 blocks
+==5890==    still reachable: 122,880 bytes in 6 blocks
+==5890==         suppressed: 0 bytes in 0 blocks
+==5890== Rerun with --leak-check=full to see details of leaked memory
+==5890== 
+==5890== For counts of detected and suppressed errors, rerun with: -v
+==5890== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 17 from 6)

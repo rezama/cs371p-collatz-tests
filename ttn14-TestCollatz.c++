@@ -28,7 +28,7 @@ To test the program:
 #include "cppunit/TestFixture.h"             // TestFixture
 #include "cppunit/TextTestRunner.h"          // TextTestRunner
 
-#include "Collatz.h"
+#include "Collatz.h" //MAX_RANGE, a
 
 // -----------
 // TestCollatz
@@ -74,6 +74,27 @@ struct TestCollatz : CppUnit::TestFixture {
         CPPUNIT_ASSERT(b == true);
         CPPUNIT_ASSERT(i ==   99999);
         CPPUNIT_ASSERT(j ==   1);}
+    // ----
+    // eager cache
+    // ----
+    void test_eager_cache_1(){
+    	eager_cache();
+    	//MAX_RANGE and a are from Collatz.h
+    	for (int i = 1; i<MAX_RANGE; i++)
+    		CPPUNIT_ASSERT( a[i]!=0 );
+    }
+    void test_eager_cache_2(){
+    	eager_cache();
+    	//MAX_RANGE and a are from Collatz.h
+    	for (int i = 1; i<MAX_RANGE; i++)
+    		CPPUNIT_ASSERT( a[i]!=0 );
+    }
+    void test_eager_cache_3(){
+    	eager_cache();
+    	//MAX_RANGE and a are from Collatz.h
+    	for (int i = 1; i<MAX_RANGE; i++)
+    		CPPUNIT_ASSERT( a[i]!=0 );
+    }
     // ----
     // cycle length
     // ----
@@ -186,6 +207,10 @@ struct TestCollatz : CppUnit::TestFixture {
     // -----
 
     CPPUNIT_TEST_SUITE(TestCollatz);
+    //Prepare the cache before testing
+    CPPUNIT_TEST(test_eager_cache_1);
+    CPPUNIT_TEST(test_eager_cache_2);
+    CPPUNIT_TEST(test_eager_cache_3);
     CPPUNIT_TEST(test_read_1);
     CPPUNIT_TEST(test_read_2);
     CPPUNIT_TEST(test_read_3);
