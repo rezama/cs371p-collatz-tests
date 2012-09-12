@@ -173,6 +173,125 @@ struct TestCollatz : CppUnit::TestFixture {
         collatz_solve(r, w);
         CPPUNIT_ASSERT(w.str() == "1 1 1\n1000000 1000000 153\n1000000 1 525\n1 1000000 525\n");}
 
+    // ----------
+    // runCollatz
+    // ----------
+    void test_runCollatz_1 () {
+        int i = 12345;
+        int j = 23456;
+        const int v = runCollatz(i, j);
+        CPPUNIT_ASSERT(v == 279);
+    }
+
+    void test_runCollatz_2 () {
+        int i = 1;
+        int j = 1;
+        const int v = runCollatz(i, j);
+        CPPUNIT_ASSERT(v == 1);
+    }
+
+    void test_runCollatz_3 () {
+        int i = 1;
+        int j = 1000000;
+        const int v = runCollatz(i, j);
+        CPPUNIT_ASSERT(v == 525);
+    }
+
+    void test_runCollatz_4 () {
+        int i = 8888;
+        int j = 9999;
+        const int v = runCollatz(i, j);
+        CPPUNIT_ASSERT(v == 260);
+    }
+
+    // -----------------
+    // iterativeCollatsz
+    // -----------------
+    void test_iterativeCollatz_1 () {
+        int i = 54321;
+        const int v = iterativeCollatz(i);
+        CPPUNIT_ASSERT(v == 40);
+    }
+
+    void test_iterativeCollatz_2 () {
+        int i = 1000;
+        const int v = iterativeCollatz(i);
+        CPPUNIT_ASSERT(v == 112);
+    }
+
+    void test_iterativeCollatz_3 () {
+        int i = 1;
+        const int v = iterativeCollatz(i);
+        CPPUNIT_ASSERT(v == 1);
+    }
+
+    void test_iterativeCollatz_4 () {
+        int i = 39393;
+        const int v = iterativeCollatz(i);
+        CPPUNIT_ASSERT(v == 50);
+    }
+
+    // ----------------
+    // recursiveCollatz
+    // ----------------
+    void test_recursiveCollatz_1 () {
+        int i = 12345;
+        int length = 1;
+        const int v = recursiveCollatz(i, length);
+        CPPUNIT_ASSERT(v == 51);
+    }
+
+    void test_recursiveCollatz_2 () {
+        int i = 765432;
+        int length = 1;
+        const int v = recursiveCollatz(i, length);
+        CPPUNIT_ASSERT(v == 163);
+    }
+
+    void test_recursiveCollatz_3 () {
+        int i = 8888;
+        int length = 1;
+        const int v = recursiveCollatz(i, length);
+        CPPUNIT_ASSERT(v == 35);
+    }
+
+    void test_recursiveCollatz_4 () {
+        int i = 987654;
+        int length = 1;
+        const int v = recursiveCollatz(i, length);
+        CPPUNIT_ASSERT(v == 184);
+    }
+
+    // ----------
+    // cacheCheck
+    // ----------
+    void test_cacheCheck_1 () {
+        int i = 2000;
+        int j = 3000;
+        const int v = cacheCheck(i, j);
+        CPPUNIT_ASSERT(v == 217);
+    }
+
+    void test_cacheCheck_2 () {
+        int i = 200;
+        int j = 200000;
+        const int v = cacheCheck(i, j);
+        CPPUNIT_ASSERT(v == 383);
+    }
+
+    void test_cacheCheck_3 () {
+        int i = 500000;
+        int j = 1000000;
+        const int v = cacheCheck(i, j);
+        CPPUNIT_ASSERT(v == 525);
+    }
+
+    void test_cacheCheck_4 () {
+        int i = 256;
+        int j = 4096;
+        const int v = cacheCheck(i, j);
+        CPPUNIT_ASSERT(v == 238);
+    }
     // -----
     // suite
     // -----
@@ -199,6 +318,22 @@ struct TestCollatz : CppUnit::TestFixture {
     CPPUNIT_TEST(test_solve1);
     CPPUNIT_TEST(test_solve2);
     CPPUNIT_TEST(test_solve_corner1);
+    CPPUNIT_TEST(test_runCollatz_1);
+    CPPUNIT_TEST(test_runCollatz_2);
+    CPPUNIT_TEST(test_runCollatz_3);
+    CPPUNIT_TEST(test_runCollatz_4);
+    CPPUNIT_TEST(test_iterativeCollatz_1);
+    CPPUNIT_TEST(test_iterativeCollatz_2);
+    CPPUNIT_TEST(test_iterativeCollatz_3);
+    CPPUNIT_TEST(test_iterativeCollatz_4);
+    CPPUNIT_TEST(test_recursiveCollatz_1);
+    CPPUNIT_TEST(test_recursiveCollatz_2);
+    CPPUNIT_TEST(test_recursiveCollatz_3);
+    CPPUNIT_TEST(test_recursiveCollatz_4);
+    CPPUNIT_TEST(test_cacheCheck_1);
+    CPPUNIT_TEST(test_cacheCheck_2);
+    CPPUNIT_TEST(test_runCollatz_3);
+    CPPUNIT_TEST(test_cacheCheck_4);
     CPPUNIT_TEST_SUITE_END();};
 
 // ----
