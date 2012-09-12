@@ -38,7 +38,6 @@ struct TestCollatz : CppUnit::TestFixture {
     // ----
     // read
     // ----
-
     void test_read () {
         std::istringstream r("1 10\n");
         int i;
