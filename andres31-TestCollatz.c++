@@ -124,6 +124,21 @@ struct TestCollatz : CppUnit::TestFixture {
         const int v = collatz_eval(900, 1000);
         CPPUNIT_ASSERT(v == 174);}
 
+    void test_eval_5 () {
+	const int v = collatz_eval(1,1);
+	CPPUNIT_ASSERT(v == 1);}
+
+    void test_eval_6 () {
+	const int v = collatz_eval(1,2);
+	CPPUNIT_ASSERT(v == 2);}
+
+    void test_eval_6 () {
+	const int v = collatz_eval(1, 150);
+	CPPUNIT_ASSERT(v == 122);}
+ 
+    void test_eval_7 () {
+	const int v = collatz_eval(151, 300);
+	CPPUNIT_ASSERT(v == 128);}
     // -----
     // print
     // -----
